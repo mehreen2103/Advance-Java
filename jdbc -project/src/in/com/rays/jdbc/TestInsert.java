@@ -20,9 +20,10 @@ public static void main(String[] args) throws ClassNotFoundException, SQLExcepti
 		Statement  stmt =conn.createStatement();
 		
 		//4. execute query and get resultset
-		int i = stmt.executeUpdate("insert into employee values ()");
+		int i = stmt.executeUpdate("insert into employee values (9, 'Neha', 'NCS',65000,5)");
 		
 		System.out.println("Data insert successfully" + i );
+		
 		conn.close();
   }
 }

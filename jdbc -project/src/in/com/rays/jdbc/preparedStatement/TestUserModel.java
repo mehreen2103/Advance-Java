@@ -10,7 +10,6 @@ public class TestUserModel {
 		
 		//testAdd();
 		//TestDelete();
-		
 		testfindByLogin();
 		
 	}
@@ -56,7 +55,7 @@ public class TestUserModel {
 		model.update(bean);
 	}
 	
-	///<----------------Finf by login--------------------------->//
+	///<----------------Find by login--------------------------->//
 	
 	public static void testfindByLogin() throws Exception {
 		
@@ -74,4 +73,8 @@ public class TestUserModel {
 		}
 
 	}
+	
+	
+	
+	
 }

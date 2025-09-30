@@ -5,13 +5,26 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import com.mysql.cj.xdevapi.PreparableStatement;
 
 public class UserModel {
+	
+	ResourceBundle rb = ResourceBundle.getBundle("in.com.rays.bundle.app");
+	
+	String url = rb.getString("url");
+	String driver = rb.getString("driver");
+	String username = rb.getString("username");
+	String password = rb.getString("password");
+	
+	
 
 	private static String login;
-
+	
+	
+//<-----------------------Generate a next primary key------------------------>//
+	
 	public int nextPK() throws ClassNotFoundException, SQLException {
 		
 		int pk = 0;
@@ -61,7 +74,7 @@ public class UserModel {
 
 	public void delete(UserBean bean) throws Exception {
 		
-       Class.forName("com.mysql.cj.jdbc.Driver"); 
+        Class.forName("com.mysql.cj.jdbc.Driver"); 
 		
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/adv","root","root");
 		
@@ -133,5 +146,8 @@ public class UserModel {
 		conn.close();
 		return bean;
 	}
+	
+	//<------------------------------------------->//
+	
 	
 }

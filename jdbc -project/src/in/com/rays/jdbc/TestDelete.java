@@ -13,13 +13,13 @@ public static void main(String[] args) throws ClassNotFoundException, SQLExcepti
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		//2. Connection to database
-		Connection conn = DriverManager.getConnection("jdbc:mysql//localhost:3306/adv","root","root");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/adv","root","root");
 		
 		//3. Create statement
 		Statement  stmt =conn.createStatement();
 		
 		//4. execute query and get resultset
-		int i = stmt.executeUpdate("delete from table( )");
+		int i = stmt.executeUpdate("delete from employee where id = 3");
 		
 		System.out.println("Data deleted successfully" + i );
 		 
