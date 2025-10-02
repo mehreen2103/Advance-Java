@@ -1,12 +1,10 @@
 package in.com.rays.util;
 
 import java.beans.PropertyVetoException;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import javax.sql.DataSource;
-
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 //Step 1:- Make class final so child can not be created.
@@ -16,11 +14,9 @@ public final class JDBCDataSource {
 	//Step 2:- Make self type of private static variable/attribute, static variable/attribute have one copy in there life time
 		private static JDBCDataSource datasource = null;
 	
-		
 		private static ComboPooledDataSource cpds= null;
 		
-		
- // Step 3:- Make default constructor private so other class can not be create instance of this class  	
+    // Step 3:- Make default constructor private so other class can not be create instance of this class  	
 	private JDBCDataSource() {
 		
 	}
@@ -57,8 +53,15 @@ public final class JDBCDataSource {
 		return getInstance().cpds.getConnection();
 		
 	}
+	
 	public static void closeConnection(Connection conn) throws SQLException {
 		if(conn != null) {
+			conn.close();
+		}
+	}
+	
+	public static void trnrollback(Connection conn) throws SQLException {
+		if (conn != null) {
 			conn.close();
 		}
 	}
